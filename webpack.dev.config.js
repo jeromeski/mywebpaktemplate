@@ -1,6 +1,6 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const  HtmlWebpackPlugin  = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devServer: {
@@ -19,12 +19,14 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: 'babel-loader'
-      },
-      {
-        test: /\.jsx?$/,
-        resolve: { extensions: ['.js', '.jsx'] },
-        use: 'babel-loader'
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: ['babel-plugin-transform-class-properties', '@babel/plugin-proposal-class-properties']
+          }
+        }
       },
       {
         // checks if the filename contains png or jpg
@@ -79,6 +81,7 @@ module.exports = {
       }
     ]
   },
+  devtool: 'cheap-module-eval-source-map',
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({

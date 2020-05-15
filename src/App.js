@@ -1,18 +1,22 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import Works from './pages/Works';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Portfolio from './pages/Works';
+// import Works from './pages/Works';
 
-function App(){
+function App() {
   return (
     <>
-      <Navbar/>
-      <div>
-        <Home/>
-        <Works/>
-      </div>
+      <BrowserRouter>
+        <Navbar/>
+        <div>
+          <Route exact path={'/'} component={Home}/>
+          <Route exact path={'/works'} component={Portfolio}/>
+        </div>
+      </BrowserRouter>
     </>
   );
-};
+}
 
 export default App;

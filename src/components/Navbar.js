@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import Logo from '../assets/logo.svg';
 import $ from 'jquery';
 
@@ -33,58 +34,58 @@ function Navbar() {
 
   return (
     <div id='nav_bar'>
-      <a className='logo' rel='index' href='/'>
+      <Link className='logo' rel='index' to='/'>
         <img
           src={Logo}
           alt='Front End Developer Logo, MERN Developer Logo, React Developer Logo'
         />
-      </a>
+      </Link>
       <nav>
-        <a  href='/' rel='index' className='nav-link'>
+        <NavLink  exact to='/' rel='index' className='nav-link'>
           <span className='icon-home1'></span>
-        </a>
-        <a href='/about' rel='about' className='nav-link'>
+        </NavLink>
+        <NavLink to='/about' rel='about' className='nav-link'>
           <span className='icon-user'></span>
-        </a>
-        <a href='/skills' rel='skills' className='nav-link'>
+        </NavLink>
+        <NavLink to='/skills' rel='skills' className='nav-link'>
           <span className='icon-tool'></span>
-        </a>
-        <a rel='works' href='/works' className='nav-link'>
+        </NavLink>
+        <NavLink rel='works' to='/works' className='nav-link'>
           <span className='icon-eye'></span>
-        </a>
-        <a rel='contact' href='/contact' className='nav-link'>
+        </NavLink>
+        <NavLink rel='contact' to='/contact' className='nav-link'>
           <span className='icon-mail'></span>
-        </a>
+        </NavLink>
       </nav>
       <ul className='social-media'>
         <li>
-          <a href='https://twitter.com/d_JeromeG_b'>
+          <Link to='https://twitter.com/d_JeromeG_b'>
             <span className='icon-twitter'></span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href='https://www.linkedin.com/in/jerome-gacoscosim-5b3972166/'>
+          <Link to='https://www.linkedin.com/in/jerome-gacoscosim-5b3972166/'>
             <span className='icon-linkedin'></span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href='fb.me/jerome.webdeveloper'>
+          <Link to='fb.me/jerome.webdeveloper'>
             <span className='icon-facebook'></span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a
-            href='#'
+          <Link
+            to='#'
             // target='_blank'
           >
             <span className='icon-rss'></span>
-          </a>
+          </Link>
         </li>
       </ul>
-      <a id='mobile-link' href='#'>
+      <Link id='mobile-link' to='#'>
         <span className='icon-menu'></span>
         <span className='icon-x hidden'></span>
-      </a>
+      </Link>
     </div>
   );
 };
